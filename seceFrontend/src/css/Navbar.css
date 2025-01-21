@@ -1,0 +1,19 @@
+ol{
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+    background-color: chocolate;
+    color: aliceblue;
+}
+.link{
+    text-decoration: none;
+    color: aliceblue;
+    padding: 3px;
+}
+.link:hover{
+    background-color: aliceblue;
+    color: chocolate;
+    border-radius: 10px;
+}
