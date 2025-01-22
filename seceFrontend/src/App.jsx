@@ -5,6 +5,9 @@ import Contact from "./components/FunctionalComponents/Contact";
 import Navbar from "./components/FunctionalComponents/Navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Signup from "./components/FunctionalComponents/Signup";
+import UseState from "./components/FunctionalComponents/Hooks/UseState";
+import UseEffect from "./components/FunctionalComponents/Hooks/UseEffect";
+import UseEffectApi from "./components/FunctionalComponents/Hooks/UseEffectAPI";
 function App() {
   return (
     <BrowserRouter>
@@ -17,6 +20,9 @@ function App() {
           element={<Gallery page="Gallery" img="SECE Logo" />}
         ></Route>
         <Route path="/contact" element={<Contact />}></Route>
+        <Route path="/use-state" element={<UseState />}></Route>
+        <Route path="/use-effect" element={<UseEffect />}></Route>
+        <Route path="/use-api" element={<UseEffectApi />}></Route>
         <Route path="/sign-up" element={<Signup />}></Route>
       </Routes>
     </BrowserRouter>
