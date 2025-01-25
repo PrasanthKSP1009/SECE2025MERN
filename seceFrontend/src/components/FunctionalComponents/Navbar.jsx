@@ -113,6 +113,11 @@ const Navbar = () => {
             )}
           </div>
           <li>
+            <Link to="/hoc" className="link">
+              HoC
+            </Link>
+          </li>
+          <li>
             <Link to="/sign-up" className="link">
               Signup
             </Link>
