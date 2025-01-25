@@ -14,6 +14,8 @@ import UseCallback from "./components/FunctionalComponents/Hooks/UseCallback";
 import ReactLifecycleMethods from "./components/classComponents/ReactLifecycleMethods";
 import Student from "./components/FunctionalComponents/Hooks/UseContext";
 import Memo from "./components/FunctionalComponents/Memoization/Memo";
+import LazyLoadingWithSuspense from "./components/FunctionalComponents/Memoization/LazyLoadingWithSuspense";
+import UseLocalStorage from "./components/FunctionalComponents/Hooks/UseLocalStorage";
 function App() {
   return (
     <BrowserRouter>
@@ -35,6 +37,8 @@ function App() {
         <Route path="/use-call" element={<UseCallback />}></Route>
         <Route path="/use-context" element={<Student />}></Route>
         <Route path="/memo" element={<Memo />}></Route>
+        <Route path="/lazy" element={<LazyLoadingWithSuspense />}></Route>
+        <Route path="/use-custom" element={<UseLocalStorage />}></Route>
         <Route path="/sign-up" element={<Signup />}></Route>
       </Routes>
     </BrowserRouter>
