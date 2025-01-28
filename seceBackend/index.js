@@ -43,10 +43,19 @@ app.post("/signup", (req, res) => {
     res.status(400).send("Signup Unsuccessful", error);
   }
 });
-app.get('/getsignupdet',async(req,res)=>{
-  var signUpdet = await Signup.find()
-  res.status(200).json(signUpdet)
-})
+app.get("/getsignupdet", async (req, res) => {
+  var signUpdet = await Signup.find();
+  res.status(200).json(signUpdet);
+});
+app.post("/updatedet", async(req, res) => {
+  var updateRec = await Signup.findOneAndUpdate(
+    { username: "abi290" },
+    { $set: { username: "abi2006" } }
+  );
+  console.log(updateRec);
+  updateRec.save()
+  res.json("Record Updated")
+});
 
 app.listen(3001, () => {
   console.log("Server Started");
