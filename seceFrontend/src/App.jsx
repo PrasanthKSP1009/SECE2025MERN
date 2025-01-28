@@ -17,6 +17,7 @@ import Memo from "./components/FunctionalComponents/Memoization/Memo";
 import LazyLoadingWithSuspense from "./components/FunctionalComponents/Memoization/LazyLoadingWithSuspense";
 import UseLocalStorage from "./components/FunctionalComponents/Hooks/UseLocalStorage";
 import HoC from "./components/FunctionalComponents/HoC/HoC";
+import Login from "./components/FunctionalComponents/Login";
 function App() {
   return (
     <BrowserRouter>
@@ -42,6 +43,7 @@ function App() {
         <Route path="/use-custom" element={<UseLocalStorage />}></Route>
         <Route path="/hoc" element={<HoC />}></Route>
         <Route path="/sign-up" element={<Signup />}></Route>
+        <Route path="/login" element={<Login />}></Route>
       </Routes>
     </BrowserRouter>
   );
