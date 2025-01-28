@@ -13,7 +13,7 @@ const Signup = () => {
     event.preventDefault();
     console.log("Event Triggered");
     try {
-      const req = await axios.post("http://localhost:3001/signup", {
+      const req = await axios.post("https://sece-backend-myk9.onrender.com/signup", {
         firstName: firstName,
         lastName: lastName,
         username: username,
