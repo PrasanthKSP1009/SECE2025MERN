@@ -43,7 +43,7 @@ app.post("/signup", async(req, res) => {
       password: hashedPassword,
     });
     newSignup.save();
-    res.status(201).json({response:"Signup Successful",signupStatus:false});
+    res.status(201).json({response:"Signup Successful",signupStatus:true});
   } catch (error) {
     res.status(400).send("Signup Unsuccessful", error);
   }
