@@ -3,10 +3,12 @@ const path = require("path");
 const mdb = require("mongoose");
 const dotenv = require("dotenv");
 const Signup = require("./models/signupSchema");
-const e = require("express");
+const bcrypt = require('bcrypt')
+const cors = require('cors')
 
 const app = express();
 dotenv.config();
+app.use(cors())
 app.use(express.json());
 
 mdb
@@ -27,18 +29,21 @@ app.get("/static", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 
-app.post("/signup", (req, res) => {
+app.post("/signup", async(req, res) => {
+  console.log(req.body)
   var { firstName, lastName, username, email, password } = req.body;
+  var hashedPassword = await bcrypt.hash(password,10)
+  console.log(hashedPassword);
   try {
     const newSignup = new Signup({
       firstName: firstName,
       lastName: lastName,
       username: username,
       email: email,
-      password: password,
+      password: hashedPassword,
     });
     newSignup.save();
-    res.status(201).send("Signup Successful");
+    res.status(201).json({response:"Signup Successful",signupStatus:false});
   } catch (error) {
     res.status(400).send("Signup Unsuccessful", error);
   }
