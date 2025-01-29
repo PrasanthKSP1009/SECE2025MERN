@@ -2,7 +2,7 @@
 const trackingButtonComponent = (Component) => {
   return (props) => {
     const handleClick = () => {
-      console.log("Logged In Fetch the Tracking Info", props.trackingInfo);
+      alert("HoC Component is: ",props.trackingInfo);
     };
     return (
       <div onClick={handleClick}>

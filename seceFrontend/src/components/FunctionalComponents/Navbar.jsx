@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import "../../css/Navbar.css";
+import { AuthContext } from "./ContextComponents/AuthContext";
 
 const Navbar = () => {
+  const { user, dispatch } = useContext(AuthContext);
   var [dropdown, showDropdown] = useState(false);
   const toggleDropdown = () => {
     showDropdown((dropdown) => !dropdown);
@@ -10,6 +12,10 @@ const Navbar = () => {
   var [dropdown1, showDropdown1] = useState(false);
   const toggleDropdown1 = () => {
     showDropdown1((dropdown1) => !dropdown1);
+  };
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    dispatch({ type: "LOGOUT" });
   };
   return (
     <header>
@@ -118,9 +124,15 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/sign-up" className="link">
-              Signup
-            </Link>
+            {user ? (
+              <span onClick={handleLogout} className="link">
+                Logout
+              </span>
+            ) : (
+              <Link to="/login" className="link">
+                Login
+              </Link>
+            )}
           </li>
         </ol>
       </nav>

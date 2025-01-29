@@ -4,7 +4,6 @@ const UseRef = () => {
   var [text, setText] = useState("Hell");
   var prevRender = useRef();
   useEffect(()=>{
-    console.log(prevRender.current)
     prevRender.current = text
   },[text])
   return (

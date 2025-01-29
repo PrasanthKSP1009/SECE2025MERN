@@ -11,7 +11,6 @@ const Signup = () => {
   var navigate = useNavigate();
   const handleSignup = async (event) => {
     event.preventDefault();
-    console.log("Event Triggered");
     try {
       const req = await axios.post("https://sece-backend-myk9.onrender.com/signup", {
         firstName: firstName,
@@ -20,13 +19,12 @@ const Signup = () => {
         email: email,
         password: password,
       });
-      console.log(req);
       alert(req.data.response);
       if (req.data.signupStatus) {
         navigate("/login");
       }
-    } catch (err) {
-      console.log(err);
+    } catch (e) {
+      alert("Signup Unsuccessful");
     }
   };
 

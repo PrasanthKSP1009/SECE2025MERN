@@ -6,7 +6,6 @@ const UseEffectApi = () => {
     axios
       .get("https://jsonplaceholder.typicode.com/posts/")
       .then((res) => {
-        console.log(res.data);
         setPost(res.data);
       })
       .catch((err) => console.log(err));
